@@ -25,12 +25,22 @@ function findHero() {
     document.getElementById("results").innerHTML = lword;
 
     //extra credit display all of the heroes to the page
-
+    document.getElementById("namelist").innerHTML = marvelHeroes.join(" | ");
 }
 
 //takes an array of strings and returns the longest one. 
 function findLongestString(namesArry) {
 
-    return "";
+    // set longest word vairant
+    let lstring = marvelHeroes[0]; 
+
+    // loop through each element, if string length bigger than last then that's longest
+    marvelHeroes.forEach(element => {
+        if (element.length > lstring.length) {
+            lstring = element;
+        };
+    });
+
+    return lstring;
 
 }
