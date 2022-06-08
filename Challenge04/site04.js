@@ -145,7 +145,15 @@ function citySort() {
 
 //takes an array of objects and sorts by population. 
 function sortByPopulation(cityData, sortDir) {
-    
+    cityData.sort((a,b) => {
+        if (sortDir == "asc") {
+            return (a.population - b.population);
+        }
+        else if (sortDir == "desc")
+        {
+            return (b.population - a.population);
+        }  
+    });
 }
 
 //takes an array of objects and sorts by median age. 
