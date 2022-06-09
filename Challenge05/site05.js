@@ -33,5 +33,27 @@ function checkAnagram() {
 //takes an two strings and determines if the are anagarms
 //returns true or false
 function isAnagram(stringA, stringB) {
+
+    // simplify strings - to lower case, strip out whitespace and non-alphanumeric characters
+    stringA = stringA.toLowerCase();
+    stringB = stringB.toLowerCase();
+    stringA = stringA.replace(/[^a-z0-9]/g,"");
+    stringB = stringB.replace(/[^a-z0-9]/g,"");
+
+    // check strings are same length
+    if (stringA.length != stringB.length) {
+        return false;
+    }
+
+    // sort each string alphabetically, by converting to and from array
+    let sortedA = stringA.split('').sort().join('');
+    let sortedB = stringB.split('').sort().join('');
+
+    // check if sorted strings are the same
+    if (sortedA == sortedB) {
+        return true;
+    }
+    
+
    return false;
 }
