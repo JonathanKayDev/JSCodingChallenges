@@ -85,20 +85,9 @@ function heroSearch(searchterm, marvelHeroes) {
     searchterm = searchterm.toLowerCase();
     // remove white space and non-alphanumeric characters
     searchterm = searchterm.replace(/[^a-z0-9]/g,"");
-    
-    let heroLowerCase = "";
-    let resultObj = {};
 
-    //loop over each hero object and see if matches search term
-    marvelHeroes.forEach(element => {
-        // simplify object alias
-        heroLowerCase = element.Alias.toLowerCase();
-        heroLowerCase = heroLowerCase.replace(/[^a-z0-9]/g,"");
-
-        if (heroLowerCase == searchterm) {
-            resultObj = element;
-        }
-
+    let resultObj = marvelHeroes.find( h => {
+        return h.Alias.toLowerCase().replace(/[^a-z0-9]/g,"") == searchterm;
     });
 
     return resultObj;
