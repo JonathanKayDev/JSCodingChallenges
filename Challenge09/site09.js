@@ -81,5 +81,25 @@ function findHero() {
 
 //takes an array of strings and returns the longest one. 
 function heroSearch(searchterm, marvelHeroes) {
-   return {};
+    // convert to lowercase
+    searchterm = searchterm.toLowerCase();
+    // remove white space and non-alphanumeric characters
+    searchterm = searchterm.replace(/[^a-z0-9]/g,"");
+    
+    let heroLowerCase = "";
+    let resultObj = {};
+
+    //loop over each hero object and see if matches search term
+    marvelHeroes.forEach(element => {
+        // simplify object alias
+        heroLowerCase = element.Alias.toLowerCase();
+        heroLowerCase = heroLowerCase.replace(/[^a-z0-9]/g,"");
+
+        if (heroLowerCase == searchterm) {
+            resultObj = element;
+        }
+
+    });
+
+    return resultObj;
 }
