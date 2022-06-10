@@ -23,7 +23,45 @@ function findWords() {
 
 //function to return the top 3 most used words
 function getMostUsedWords(wordText, topN) {
-    return [];
+
+    let words = [];
+    // replace non-alphanumeric characters except spaces
+    let input = wordText.toLowerCase();
+    input = input.replace(/[^a-z0-9\s]/g,"");
+    input = input.split(" ");
+
+    // loop through input and find in words array. If found, add to count
+    input.forEach(element => {
+        // search for current word in results
+        let index = words.findIndex( w => {
+            return w.word == element
+        });
+
+        // if found, increase count, else add to words array
+        if (index != -1) {
+            words[index].count += 1;
+        } else{
+            words.push({
+                word: element,
+                count: 1
+            });
+        }
+
+    });
+
+    // sort by word count
+    words.sort((a,b) => {
+        return (b.count - a.count);
+    });
+
+    //get top 3 words
+    let topWords = [];
+
+    for (let index = 0; index < 3; index++) {
+        topWords.push(words[index]);
+    }
+
+    return topWords;
 }
 
 
