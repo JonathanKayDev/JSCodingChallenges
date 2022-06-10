@@ -46,11 +46,11 @@ function isAnagram(stringA, stringB) {
     }
 
     // sort each string alphabetically, by converting to and from array
-    let sortedA = stringA.split('').sort().join('');
-    let sortedB = stringB.split('').sort().join('');
+    stringA = stringA.split('').sort().join('');
+    stringB = stringB.split('').sort().join('');
 
     // check if sorted strings are the same
-    if (sortedA == sortedB) {
+    if (stringA == stringB) {
         return true;
     }
     
