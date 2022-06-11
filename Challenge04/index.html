@@ -33,10 +33,19 @@
                     Sort the city data by the city name<br>
                     Sort the city data by median age<br>
                 </p>
-                <div class="mt-1 text-end">
-                    <button id="btnSubmit" type="button" class="btn btn-warning">Display Data</button>
+                <div class="mt-2">
+                    <button id="btnSubmit" type="button" onclick="citySort('popAsc')" class="btn btn-warning mt-2">Sort Population Asc</button>
+                    <button id="btnSubmit" type="button" onclick="citySort('popDesc')" class="btn btn-warning mt-2">Sort Population Desc</button>
                 </div>
                 <div class="mt-2">
+                    <button id="btnSubmit" type="button" onclick="citySort('cityNameAsc')" class="btn btn-warning mt-2">Sort City Name Asc</button>
+                    <button id="btnSubmit" type="button" onclick="citySort('cityNameDesc')" class="btn btn-warning mt-2">Sort City Name Desc</button>
+                </div>
+                <div class="mt-2">
+                    <button id="btnSubmit" type="button" onclick="citySort('medAgeAsc')" class="btn btn-warning mt-2">Sort Median Age Asc</button>
+                    <button id="btnSubmit" type="button" onclick="citySort('medAgeDesc')" class="btn btn-warning mt-2">Sort Median Age Desc</button>
+                </div>
+                <div class="mt-4">
                     <table class="table table-responsive table-striped table-dark table-hover">
                         <thead>
                             <th>City</th>

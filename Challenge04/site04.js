@@ -123,10 +123,33 @@ let cityData = [{
 ];
 
 //driver function used for display and passing values.
-function citySort() {
+function citySort(sortType) {
+
+    switch (sortType) {
+        case "popAsc":
+            sortByPopulation(cityData, "asc");
+            break;
+        case "popDesc":
+            sortByPopulation(cityData, "desc");
+            break;
+        case "cityNameAsc":
+            sortyByName(cityData, "asc");
+            break;
+        case "cityNameDesc":
+            sortyByName(cityData, "desc");
+            break;
+        case "medAgeAsc":
+            sortByAge(cityData, "asc");
+            break;
+        case "medAgeDesc":
+            sortByAge(cityData, "desc");
+            break;
+        default:
+            break;
+    }
+
 
     
-    sortByPopulation(cityData, "desc");
     
     //extra credit functions
     //sortyByName(cityData);
@@ -158,10 +181,26 @@ function sortByPopulation(cityData, sortDir) {
 
 //takes an array of objects and sorts by median age. 
 function sortByAge(cityData, sortDir){
-  
+  cityData.sort((a,b) => {
+    if (sortDir == "asc") {
+        return (a.median_age - b.median_age);
+    }
+    else if (sortDir == "desc")
+    {
+        return (b.median_age - a.median_age);
+    }
+  });
 }
 
 //takes an array of objects and sorts by city name. 
-function sortyByName(cityData) {
-    
+function sortyByName(cityData, sortDir) {
+    cityData.sort((a,b) => {
+        if (sortDir == "asc") {
+            return a.city.localeCompare(b.city);
+        }
+        else if (sortDir == "desc")
+        {
+            return b.city.localeCompare(a.city);
+        }
+    });
 }
