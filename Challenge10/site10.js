@@ -24,13 +24,18 @@ function findWords() {
 //function to return the top 3 most used words
 function getMostUsedWords(wordText, topN) {
 
-    let words = [];
     // replace non-alphanumeric characters except spaces
     let input = wordText.toLowerCase();
-    input = input.replace(/[^a-z0-9\s]/g,"");
-    input = input.split(" ");
+    input = input.replace(/[^a-z0-9\s]/ig,"");
+    input = input.split(/\s+/g);
+
+    // remove stop words
+    let stopWords = getStopWords();
+    input = input.filter(w => !stopWords.includes(w));
 
     // loop through input and find in words array. If found, add to count
+    let words = [];
+    
     input.forEach(element => {
         // search for current word in results
         let index = words.findIndex( w => {
